@@ -25,12 +25,12 @@ RUN dpkg --add-architecture i386 \
 WORKDIR /opt/kag-server
 
 RUN wget http://dl.kag2d.com/kag-linux32-dedicated-release.tar.gz \
-    && tar -zxf kagbeta-linux32-dedicated.tar.gz \
-    && rm kagbeta-linux32-dedicated.tar.gz \
-    && chmod +x kagbeta-linux32-dedicated/dedicatedserver.sh
+    && tar -zxf kag-linux32-dedicated-release.tar.gz \
+    && rm kag-linux32-dedicated-release.tar.gz \
+    && chmod +x dedicatedserver.sh
 
-VOLUME /opt/kag-server/kagbeta-linux32-dedicated/autoconfig.cfg 
+VOLUME /opt/kag-server/autoconfig.cfg 
 
 EXPOSE 50301/udp
 
-CMD kagbeta-linux32-dedicated/dedicatedserver.sh
+CMD dedicatedserver.sh
