@@ -1,6 +1,7 @@
 FROM debian:latest
 
-RUN apt-get update -y \
+RUN dpkg --add-architecture i386 \
+	&& apt-get update -y \
 	&& apt-get install -y wget \
         libc6:i386 \
         libstdc++6:i386 \
