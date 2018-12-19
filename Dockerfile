@@ -21,7 +21,7 @@ RUN dpkg --add-architecture i386 \
         libdrm2:i386 \
         libxdmcp6:i386 \
     && rm -rf /var/lib/apt/lists/* \
-	mkdir /opt/kag-server
+	&& mkdir /opt/kag-server
 
 WORKDIR /opt/kag-server
 
