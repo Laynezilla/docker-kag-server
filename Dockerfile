@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 RUN dpkg --add-architecture i386 \
 	&& apt-get update -y \
@@ -20,7 +20,8 @@ RUN dpkg --add-architecture i386 \
         libxcb1:i386 \
         libdrm2:i386 \
         libxdmcp6:i386 \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+	mkdir /opt/kag-server
 
 WORKDIR /opt/kag-server
 
@@ -33,4 +34,4 @@ VOLUME /opt/kag-server/autoconfig.cfg
 
 EXPOSE 50301/udp
 
-CMD dedicatedserver.sh
+ENTRYPOINT dedicatedserver.sh
