@@ -36,4 +36,4 @@ VOLUME /opt/kag-server/autoconfig.cfg
 EXPOSE 50301/udp
 
 #ENTRYPOINT ["./dedicatedserver.sh"]
-ENTRYPOINT ["ls -la"]
+CMD ls
