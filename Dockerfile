@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 
-RUN dpkg --add-architecture i386 \
-	&& apt-get update -y \
-	&& apt-get install -y wget \
+RUN dpkg --add-architecture i386 && \
+	apt-get update -y && \
+	apt-get install -y wget \
 		libc6:i386 \
 		libstdc++6:i386 \
 		libglapi-mesa:i386 \
@@ -19,16 +19,17 @@ RUN dpkg --add-architecture i386 \
 		libxcb-dri2-0:i386 \
 		libxcb1:i386 \
 		libdrm2:i386 \
-		libxdmcp6:i386 \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& mkdir /opt/kag-server
+		libxdmcp6:i386 && \
+	rm -rf /var/lib/apt/lists/* && \
+	mkdir /opt/kag-server
 
 WORKDIR /opt/kag-server
 
-RUN wget http://dl.kag2d.com/kag-linux32-dedicated-release.tar.gz \
-	&& tar -zxf kag-linux32-dedicated-release.tar.gz \
-	&& rm kag-linux32-dedicated-release.tar.gz \
-	&& chmod +x dedicatedserver.sh
+RUN wget http://dl.kag2d.com/kag-linux32-dedicated-release.tar.gz && \
+	tar -zxf kag-linux32-dedicated-release.tar.gz && \
+	rm kag-linux32-dedicated-release.tar.gz && \
+	chmod +x dedicatedserver.sh && \
+	chmod +x KAGdedi
 
 VOLUME /opt/kag-server/autoconfig.cfg 
 
