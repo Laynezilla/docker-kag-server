@@ -21,17 +21,16 @@ RUN dpkg --add-architecture i386 && \
 		libdrm2:i386 \
 		libxdmcp6:i386 && \
 	rm -rf /var/lib/apt/lists/* && \
-	mkdir /opt/kag-server
+	mkdir -p /opt/kag-server
 
 WORKDIR /opt/kag-server
 
 RUN wget http://dl.kag2d.com/kag-linux32-dedicated-release.tar.gz && \
 	tar -zxf kag-linux32-dedicated-release.tar.gz && \
 	rm kag-linux32-dedicated-release.tar.gz && \
-	chmod +x dedicatedserver.sh && \
-	chmod +x KAGdedi
+	chmod +x dedicatedserver.sh
 
-VOLUME /opt/kag-server/autoconfig.cfg 
+#VOLUME /opt/kag-server/autoconfig.cfg
 
 EXPOSE 50301/udp
 
