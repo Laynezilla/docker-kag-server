@@ -1,3 +1,4 @@
+# https://wiki.kag2d.com/wiki/Server
 FROM ubuntu:latest
 
 RUN dpkg --add-architecture i386 && \
